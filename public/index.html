@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Configuracion basica del documento -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca</title>
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Contenedor principal de la app -->
+  <main class="app">
+    <!-- Panel izquierdo: formulario de alta/edicion -->
+    <section class="panel panel-left">
+      <h1>Biblioteca Morada</h1>
+      <p>Administra tus libros: agrega, edita y elimina en segundos.</p>
+
+      <!-- Formulario reutilizado para crear y editar -->
+      <form id="libro-form" class="libro-form">
+        <!-- Campo oculto para guardar el ID cuando se edita -->
+        <input type="hidden" id="libro-id" />
+
+        <label for="titulo">Titulo</label>
+        <input id="titulo" name="titulo" type="text" placeholder="Ej: El Principito" required />
+
+        <label for="autor">Autor</label>
+        <input id="autor" name="autor" type="text" placeholder="Ej: Antoine de Saint-Exupery" required />
+
+        <div class="form-actions">
+          <button type="submit" id="guardar-btn">Agregar libro</button>
+          <!-- Se muestra solo en modo edicion -->
+          <button type="button" id="cancelar-btn" class="btn-secundario hidden">Cancelar edicion</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Panel derecho: listado dinamico de libros -->
+    <section class="panel panel-right">
+      <h2>Listado de Libros</h2>
+      <!-- JS inserta aqui cada tarjeta de libro -->
+      <ul id="lista-libros" class="lista-libros"></ul>
+    </section>
+  </main>
+
+  <!-- Logica del frontend -->
+  <script src="script.js"></script>
+</body>
+</html>

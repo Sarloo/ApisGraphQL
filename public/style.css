@@ -1,0 +1,188 @@
+/* Variables globales de color para mantener una paleta morada consistente. */
+:root {
+  --bg-1: #2d0a46;
+  --bg-2: #4f1d75;
+  --card: #6f2dbd;
+  --card-alt: #5a189a;
+  --text: #f8edff;
+  --accent: #c77dff;
+  --danger: #ff758f;
+  --ok: #9d4edd;
+  --shadow: rgba(34, 5, 54, 0.35);
+}
+
+/* Ajuste global de box model. */
+* {
+  box-sizing: border-box;
+}
+
+/* Fondo principal con degradado y centrado del contenido. */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at 20% 20%, var(--bg-2), var(--bg-1));
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Layout de 2 columnas (formulario/listado). */
+.app {
+  width: min(1000px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Tarjetas/paneles con degradado y sombra. */
+.panel {
+  background: linear-gradient(180deg, var(--card), var(--card-alt));
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 12px 28px var(--shadow);
+}
+
+/* Reseteo ligero de margenes para titulos. */
+h1,
+h2 {
+  margin-top: 0;
+}
+
+/* Jerarquia visual del titulo principal. */
+h1 {
+  font-size: 1.9rem;
+}
+
+/* Texto descriptivo bajo el encabezado. */
+p {
+  margin-bottom: 20px;
+  opacity: 0.95;
+}
+
+/* Formulario en formato vertical. */
+.libro-form {
+  display: grid;
+  gap: 10px;
+}
+
+/* Estilo de etiquetas del formulario. */
+label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Inputs con transparencia para combinar con el tema morado. */
+input {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--text);
+  outline: none;
+}
+
+/* Color de placeholders. */
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Estado de foco accesible y visible. */
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(199, 125, 255, 0.25);
+}
+
+/* Contenedor de botones del formulario. */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* Estilo base de todos los botones. */
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Boton principal para guardar/agregar. */
+#guardar-btn {
+  background: var(--accent);
+  color: #2a073e;
+}
+
+/* Feedback visual al pasar el mouse. */
+#guardar-btn:hover {
+  filter: brightness(1.05);
+}
+
+/* Boton secundario para cancelar edicion. */
+.btn-secundario {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text);
+}
+
+/* Lista sin bullets con separacion entre tarjetas. */
+.lista-libros {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+/* Tarjeta de cada libro. */
+.libro-item {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+/* Titulo del libro dentro de tarjeta. */
+.libro-item h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+/* Texto del autor dentro de tarjeta. */
+.libro-item p {
+  margin: 0 0 10px;
+  font-size: 0.92rem;
+}
+
+/* Acciones de editar/eliminar en linea. */
+.item-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Boton de edicion. */
+.btn-editar {
+  background: var(--ok);
+  color: #fff;
+}
+
+/* Boton de eliminacion. */
+.btn-eliminar {
+  background: var(--danger);
+  color: #fff;
+}
+
+/* Clase utilitaria para ocultar elementos. */
+.hidden {
+  display: none;
+}
+
+/* En pantallas pequenas cambia a una sola columna. */
+@media (max-width: 820px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+}
